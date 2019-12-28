@@ -1,3 +1,8 @@
+#include <iostream>
+#include <stdexcept>
+#include <functional>
+#include <cstdlib>
+
 #include "Application/Application.h"
 
 int main()

@@ -93,27 +93,32 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Application OpenGL.cpp" />
-    <ClCompile Include="Application\Command\ApplicationCommands.cpp" />
+    <ClCompile Include="Application\State\State.cpp" />
     <ClCompile Include="Application\State\StateManager.cpp" />
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Application\Window.cpp" />
-    <ClCompile Include="Application\InputHandler.cpp" />
-    <ClCompile Include="Application\Command\Invoker.cpp" />
-    <ClCompile Include="Application\State\MainState.cpp" />
-    <ClCompile Include="Application\State\ExtraState.cpp" />
+    <ClCompile Include="Application\Input\InputHandler.cpp" />
+    <ClCompile Include="Application\MainState\MainState.cpp" />
+    <ClCompile Include="Application\MainState\Contexts\MainStateContexts.cpp" />
+    <ClCompile Include="Application\Input\Context\ContextManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Application\Input\Context\Action.h" />
+    <ClInclude Include="Application\Input\Context\Context.h" />
+    <ClInclude Include="Application\Input\Context\InputType.h" />
+    <ClInclude Include="Application\Input\Context\Range.h" />
+    <ClInclude Include="Application\Input\Context\State.h" />
     <ClInclude Include="Application\State\StateManager.h" />
     <ClInclude Include="Application\Application.h" />
     <ClInclude Include="Application\Utilities\Timer.h" />
     <ClInclude Include="Application\Window.h" />
     <ClInclude Include="Application\Command\Command.h" />
-    <ClInclude Include="Application\InputHandler.h" />
-    <ClInclude Include="Application\Command\Invoker.h" />
-    <ClInclude Include="Application\State\State.h" />
-    <ClInclude Include="Application\State\MainState.h" />
-    <ClInclude Include="Application\State\ExtraState.h" />
-    <ClInclude Include="Application\Command\ApplicationCommands.h" />
+    <ClInclude Include="Application\Input\InputHandler.h" />
+    <ClInclude Include="Application\State\ApplicationState.h" />
+    <ClInclude Include="Application\MainState\MainState.h" />
+    <ClInclude Include="Application\Event\InputEvent.h" />
+    <ClInclude Include="Application\MainState\Contexts\MainStateContexts.h" />
+    <ClInclude Include="Application\Input\Context\ContextManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

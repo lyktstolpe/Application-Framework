@@ -4,7 +4,7 @@ StateManager::StateManager()
 	: _stack()
 {}
 
-void StateManager::change_state(std::shared_ptr<IApplicationState> state)
+void StateManager::change_state(IApplicationState* state)
 {
 	if (!state)
 	{
@@ -23,7 +23,7 @@ void StateManager::change_state(std::shared_ptr<IApplicationState> state)
 	_stack.back()->init();
 }
 
-void StateManager::push_state(std::shared_ptr<IApplicationState> state)
+void StateManager::push_state(IApplicationState* state)
 {
 	if (!state)
 	{
@@ -56,20 +56,5 @@ void StateManager::clear()
 	{
 		_stack.back()->cleanup();
 		_stack.pop_back();
-	}
-}
-
-void StateManager::update_current()
-{
-	if (!_stack.empty())
-		_stack.back()->update();
-}
-
-void StateManager::display_current()
-{
-	if (!_stack.empty())
-	{
-		// _stack.back()->printinfo();
-		_stack.back()->display();
 	}
 }

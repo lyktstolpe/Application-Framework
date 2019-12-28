@@ -5,7 +5,7 @@
 
 #include <GLFW/glfw3.h>
 
-#include "InputHandler.h"
+#include "Input/InputHandler.h"
 
 struct DestroyglfwWin {
 	void operator()(GLFWwindow* ptr) {
@@ -17,16 +17,16 @@ class Window
 {
 private:
 	std::unique_ptr<GLFWwindow, DestroyglfwWin> _glfwwindow;
-	std::shared_ptr<InputHandler> _inputhandler;
+	InputHandler* _inputhandler;
 
 public:
-	Window();
+	Window(InputHandler* inputhandler);
 	~Window();
 
 	void update();
 
 	bool is_closed() { return glfwWindowShouldClose(_glfwwindow.get()); }
-	std::shared_ptr<InputHandler> inputhandler() { return _inputhandler; }
+	InputHandler* inputhandler() { return _inputhandler; }
 	GLFWwindow* glfwwindow() { return _glfwwindow.get(); }
 };
 

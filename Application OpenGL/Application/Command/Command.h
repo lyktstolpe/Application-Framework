@@ -3,21 +3,32 @@
 
 #pragma once
 
-enum class KeyState {
-	release,
-	press,
-};
+#include <loguru.hpp>
 
-enum class ActivationType {
-	press,
-	hold
-};
+#include <string>
 
 class ICommand
 {
 public:
 	virtual ~ICommand() {}
 	virtual void execute() = 0;
-	virtual ActivationType activation_type() = 0;
 };  
+
+class Print : public ICommand
+{
+public:
+	Print()
+		: _string("")
+	{}
+	Print(std::string string)
+		: _string(string)
+	{}
+
+	void execute(){
+		LOG_F(INFO, "%s", _string.c_str());
+	}
+
+private:
+	std::string _string;
+};
 #endif

@@ -8,22 +8,21 @@
 
 #include <loguru.hpp>
 
-#include "State.h"
+#include "ApplicationState.h"
 
 class StateManager
 {
 public:
 	StateManager();
 
-	void change_state(std::shared_ptr<IApplicationState> state);
-	void push_state(std::shared_ptr<IApplicationState> state);
+	void change_state(IApplicationState* state);
+	void push_state(IApplicationState* state);
 	void pop_state();
 	void clear();
-	void update_current();
-	void display_current();
+	IApplicationState* get_current() { return _stack.back(); }
 
 private:
-	std::vector<std::shared_ptr<IApplicationState>> _stack;
+	std::vector<IApplicationState*> _stack;
 };
 
 #endif
