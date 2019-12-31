@@ -3,13 +3,13 @@
 #include <functional>
 #include <cstdlib>
 
-#include "Application/Application.h"
+#include "MyApplication.h"
 
 int main()
 {
+	std::shared_ptr<MyApplication> a = std::make_shared<MyApplication>();
 
-	std::shared_ptr<Application> a = std::make_shared<Application>();
-
+	a->init();
 	a->run();
 
 	return 0;

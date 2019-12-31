@@ -18,78 +18,144 @@
     <ClCompile Include="Application OpenGL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Window.cpp">
+    <ClCompile Include="Application\Base\Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Application.cpp">
+    <ClCompile Include="Application\Base\Application_Base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\State\StateManager.cpp">
+    <ClCompile Include="Application\Base\Command\DefaultCommands.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Input\InputHandler.cpp">
+    <ClCompile Include="Application\Base\Input\Context\Context_Base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\Input\Context\ContextManager.cpp">
+    <ClCompile Include="Application\Base\Input\Context\Context_cursor_disabled.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\State\State.cpp">
+    <ClCompile Include="Application\Base\Input\Context\Context_cursor_enabled.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\MainState\Contexts\MainStateContexts.cpp">
+    <ClCompile Include="Application\Base\Input\Context\ContextManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Application\MainState\MainState.cpp">
+    <ClCompile Include="Application\Base\Input\InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\Base\State\ApplicationState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\Base\State\StateManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Application\Application.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondState\Contexts\SecondStateContexts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondState\SecondState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainState\Contexts\MainStateContexts.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MainState\MainState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Application\Window.h">
+    <ClInclude Include="Application\Base\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Application.h">
+    <ClInclude Include="Application\Base\Application_Base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Command\Command.h">
+    <ClInclude Include="Application\Base\Command\Command.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\State\StateManager.h">
+    <ClInclude Include="Application\Base\Command\DefaultCommands.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Utilities\Timer.h">
+    <ClInclude Include="Application\Base\Command\ICommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\InputHandler.h">
+    <ClInclude Include="Application\Base\Command\WeightedCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Event\InputEvent.h">
+    <ClInclude Include="Application\Base\Event\InputEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\Action.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\Context.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_Action.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\Range.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_Base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\State.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_Scalar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\InputType.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_ScalarAction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\Input\Context\ContextManager.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_ScalarState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\MainState\Contexts\MainStateContexts.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_State.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\MainState\MainState.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Application\State\ApplicationState.h">
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_VectorAction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\Invoker\Invoker_VectorState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\Context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\Context_Base.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\Context_cursor_disabled.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\Context_cursor_enabled.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\Context\ContextManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Input\InputHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\State\ApplicationState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\State\StateManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application\Base\Utilities\Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondState\Contexts\SecondStateContexts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondState\SecondState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainState\Contexts\MainStateContexts.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainState\MainState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyApplication.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
