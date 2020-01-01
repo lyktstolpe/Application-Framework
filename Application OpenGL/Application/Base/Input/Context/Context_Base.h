@@ -18,8 +18,7 @@ friend class IApplicationState;
 
 public:
 	Context();
-	~Context()
-	{}
+	virtual ~Context() {}
 
 	void handle_key_events(std::unique_ptr<std::vector<KeyEvent>>& events);
 	virtual void cleanup_core();
@@ -43,8 +42,8 @@ public:
 	std::unique_ptr<ChangeState> get_command_change_to_state(int i);
 protected:
 	std::array<std::unique_ptr<Invoker>, GLFW_KEY_LAST + 1> _keymap;
-	std::shared_ptr<GLFWwindow> _glfwwindow;
-	std::shared_ptr<Application> _parentapplication;
+	std::weak_ptr<GLFWwindow> _glfwwindow;
+	std::weak_ptr<Application> _parentapplication;
 	virtual void init() = 0;
 	virtual void cleanup() = 0;
 };

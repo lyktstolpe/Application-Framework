@@ -13,6 +13,8 @@ public:
 		, _bounds(bounds)
 	{}
 
+	~ScalarState() {}
+
 	void activate(double val)
 	{
 		Scalar::activate(val);

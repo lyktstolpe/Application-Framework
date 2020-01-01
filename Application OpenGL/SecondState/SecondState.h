@@ -12,6 +12,7 @@ class SecondState : public IApplicationState
 {
 public:
 	SecondState() {}
+	~SecondState() {}
 
 	void init();
 	void cleanup();

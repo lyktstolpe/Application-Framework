@@ -18,7 +18,7 @@ class Window
 
 public:
 	Window(int width, int height, InputHandler* inputhandler);
-	~Window();
+	~Window() {}
 
 	void update();
 

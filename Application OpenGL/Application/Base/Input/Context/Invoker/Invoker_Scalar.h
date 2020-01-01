@@ -10,6 +10,8 @@ public:
 		, _bounds(bounds)
 	{}
 
+	virtual ~Scalar() {}
+
 	void activate(double val)
 	{
 		_active = val <= _bounds.upper && val >= _bounds.lower;

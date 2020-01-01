@@ -4,16 +4,32 @@
 void IApplicationState::cleanup_core()
 {
 	clear_context();
+	_inputcontexts.clear();
 	cleanup();
 }
 
 void IApplicationState::get_events_core()
 {
-	std::unique_ptr<std::vector<KeyEvent>> key_events = _parentapplication->get_inputhandler()->get_key_events();
+	auto parentapp_shared = _parentapplication.lock();
+	std::unique_ptr<std::vector<KeyEvent>> key_events = parentapp_shared->get_inputhandler()->get_key_events();
 	if (!_contextmanager.handle_key_events(key_events))
-		LOG_F(INFO, "Key events not handled: %i", int(key_events->size()));
+	{
+		int released = 0;
+		int pressed = 0;
+		for (auto e : *key_events)
+		{
+			if (e.type == KeyEventType::key_pressed)
+				pressed++;
+			if (e.type == KeyEventType::key_released)
+				released++;
+		}
+		if (released)
+			LOG_F(INFO, "Key released events not handled:\t %i", released);
+		if (pressed)
+			LOG_F(INFO, "Key pressed events not handled:\t %i", pressed);
+	}
 
-	std::unique_ptr<std::vector<MouseEvent>> mouse_events = _parentapplication->get_inputhandler()->get_mouse_events();
+	std::unique_ptr<std::vector<MouseEvent>> mouse_events = parentapp_shared->get_inputhandler()->get_mouse_events();
 	if (!_contextmanager.handle_mouse_events(mouse_events))
 	{
 		int buttonevents = 0;

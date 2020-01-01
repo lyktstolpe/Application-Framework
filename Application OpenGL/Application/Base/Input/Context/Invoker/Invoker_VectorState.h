@@ -13,6 +13,8 @@ public:
 		, _bounds(bounds)
 	{}
 
+	~VectorState() {}
+
 	void activate(glm::vec2 val)
 	{
 		Vector::activate(val);

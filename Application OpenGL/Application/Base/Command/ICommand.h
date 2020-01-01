@@ -13,7 +13,7 @@ class Application;
 class ICommand
 {
 public:
-	~ICommand() {}
+	virtual ~ICommand() = default;
 	virtual void execute() = 0;
 };  
 

@@ -17,6 +17,7 @@ enum class MouseEventType {
 struct KeyEvent
 {
 	KeyEvent(KeyEventType t, int k) : key(k), type(t) {}
+	~KeyEvent() {}
 	int key;
 	KeyEventType type;
 };
@@ -24,6 +25,7 @@ struct KeyEvent
 struct MouseEvent
 {
 	MouseEvent(double x, double y, MouseEventType t, int k = -1) : key(k), type(t), x(x), y(y) {}
+	~MouseEvent() {}
 	double x, y;
 	int key;
 	MouseEventType type;

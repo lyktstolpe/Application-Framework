@@ -47,7 +47,7 @@ void Context_cursor_disabled::attempt_invoke()
 
 void Context_cursor_disabled::init_core()
 {
-	glfwSetInputMode(_glfwwindow.get(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+	glfwSetInputMode(_glfwwindow.lock().get(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 	init();
 }
 

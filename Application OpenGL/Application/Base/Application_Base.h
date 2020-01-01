@@ -15,6 +15,7 @@ class Application : public std::enable_shared_from_this<Application>
 {
 public:
 	Application();
+	virtual ~Application() {}
 
 	void init();
 	void run();

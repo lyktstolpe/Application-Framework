@@ -31,8 +31,8 @@ void SecondUnbound::init()
 {
 	map_mouse_x<PrintWeight>();
 	map_mouse_y<PrintWeight>();
-	int mode = glfwGetInputMode(_glfwwindow.get(), GLFW_CURSOR);
+	int mode = glfwGetInputMode(_glfwwindow.lock().get(), GLFW_CURSOR);
 
-	map_key<Action, ToggleCursor>(GLFW_KEY_ESCAPE, _glfwwindow.get());
-	map_key<Action>(GLFW_KEY_TAB, get_command_change_to_state(0));
+	map_key<Action, ToggleCursor>(GLFW_KEY_ESCAPE, _glfwwindow.lock().get());
+	map_key<State>(GLFW_KEY_TAB, get_command_change_to_state(0));
 }

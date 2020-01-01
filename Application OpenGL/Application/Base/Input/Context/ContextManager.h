@@ -8,6 +8,7 @@ class ContextManager
 {
 public:
 	ContextManager();
+	~ContextManager() {}
 
 	void change_context(Context* context);
 	void push_context(Context* context);

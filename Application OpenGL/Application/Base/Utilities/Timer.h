@@ -11,20 +11,20 @@ private:
 	typedef std::chrono::high_resolution_clock clock;
 	typedef std::chrono::duration<double, std::ratio<1> > second;
 
-	std::chrono::time_point<clock> m_beg;
+	std::chrono::time_point<clock> _beg;
 
 public:
-	Timer() : m_beg(clock::now())
-	{	}
+	Timer() : _beg(clock::now())
+	{}
 
 	void reset()
 	{
-		m_beg = clock::now();
+		_beg = clock::now();
 	}
 
 	double elapsed() const
 	{
-		return std::chrono::duration_cast<second> (clock::now() - m_beg).count();
+		return std::chrono::duration_cast<second> (clock::now() - _beg).count();
 	}
 };
 

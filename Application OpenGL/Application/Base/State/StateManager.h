@@ -14,6 +14,7 @@ class StateManager
 {
 public:
 	StateManager();
+	~StateManager() {}
 
 	void get_events();
 	void update();

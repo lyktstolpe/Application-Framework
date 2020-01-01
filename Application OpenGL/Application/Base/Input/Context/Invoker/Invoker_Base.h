@@ -30,7 +30,7 @@ public:
 		, _active(false)
 	{}
 
-	virtual ~Invoker() = default;
+	virtual ~Invoker() {}
 
 	virtual void attempt_execute()
 	{

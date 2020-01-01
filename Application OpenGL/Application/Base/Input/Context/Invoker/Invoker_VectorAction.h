@@ -13,6 +13,8 @@ public:
 		, _bounds(bounds)
 	{}
 
+	~VectorAction() {}
+
 	void attempt_execute()
 	{
 		Action::attempt_execute();

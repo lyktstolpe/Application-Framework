@@ -33,6 +33,7 @@ void Context::cleanup_core()
 
 std::unique_ptr<ChangeState> Context::get_command_change_to_state(int i)
 {
-	std::unique_ptr<ChangeState> cmd = _parentapplication->get_command_change_to_state(i);
+	auto parentapp_shared = _parentapplication.lock();
+	std::unique_ptr<ChangeState> cmd = parentapp_shared->get_command_change_to_state(i);
 	return std::move(cmd);
 }

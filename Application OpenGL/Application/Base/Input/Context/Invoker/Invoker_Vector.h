@@ -10,6 +10,8 @@ public:
 		, _bounds(bounds)
 	{}
 
+	virtual ~Vector() {}
+
 	void activate(glm::vec2 val)
 	{
 		_active = val.x <= _bounds.upper.x && val.y <= _bounds.upper.y &&

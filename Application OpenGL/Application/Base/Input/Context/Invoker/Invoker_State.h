@@ -9,6 +9,8 @@ public:
 		: Invoker(std::move(command))
 	{}
 
+	virtual ~State() {}
+
 	void activate()
 	{
 		_active = true;

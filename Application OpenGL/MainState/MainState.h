@@ -12,6 +12,7 @@ class MainState : public IApplicationState
 {
 public:
 	MainState() {}
+	~MainState() {}
 
 	void init();
 	void cleanup();

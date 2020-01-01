@@ -7,8 +7,8 @@
 class MyApplication : public Application
 {
 public:
-	MyApplication()
-	{}
+	MyApplication() {}
+	~MyApplication() {}
 
 	void init_states()
 	{

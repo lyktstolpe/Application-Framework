@@ -19,9 +19,11 @@ friend class Application;
 
 public:
 	IApplicationState() 
-		: _glfwwindow(nullptr)
-		, _parentapplication(nullptr)
+		: _glfwwindow()
+		, _parentapplication()
 	{}
+
+	virtual ~IApplicationState() {}
 
 	virtual void init() = 0;
 	void cleanup_core();
@@ -49,8 +51,8 @@ public:
 protected:
 	std::vector<std::unique_ptr<Context>> _inputcontexts;
 	ContextManager _contextmanager;
-	std::shared_ptr<GLFWwindow> _glfwwindow;
-	std::shared_ptr<Application> _parentapplication;
+	std::weak_ptr<GLFWwindow> _glfwwindow;
+	std::weak_ptr<Application> _parentapplication;
 
 	virtual void cleanup() = 0;
 	virtual void get_events() = 0;

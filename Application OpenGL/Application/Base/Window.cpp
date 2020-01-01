@@ -47,9 +47,6 @@ Window::Window(int width, int height, InputHandler* inputhandler)
 	glfwSetWindowUserPointer(_glfwwindow.get(), this);
 }
 
-Window::~Window()
-{}
-
 void Window::update()
 {
 	glfwSwapBuffers(_glfwwindow.get());

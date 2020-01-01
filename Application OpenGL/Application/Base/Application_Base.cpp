@@ -15,6 +15,7 @@ void Application::init()
 	init_window();
 	init_statemanager();
 	init_states();
+	LOG_F(INFO, "");
 }
 
 void Application::run()
@@ -94,9 +95,3 @@ void Application::init_statemanager()
 {
 	_statemanager = std::make_unique<StateManager>();
 }
-
-//void Application::init_states()
-//{
-//	create_state<MainState>();
-//	create_state<SecondState>();
-//}

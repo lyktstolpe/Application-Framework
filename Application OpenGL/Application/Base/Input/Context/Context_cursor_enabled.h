@@ -6,6 +6,7 @@ class Context_cursor_enabled : public Context
 {
 public:
 	Context_cursor_enabled();
+	~Context_cursor_enabled() {}
 
 	void handle_mouse_events(std::unique_ptr<std::vector<MouseEvent>>& events);
 	void attempt_invoke();

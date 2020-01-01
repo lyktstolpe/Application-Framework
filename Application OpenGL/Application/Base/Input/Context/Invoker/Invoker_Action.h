@@ -9,7 +9,7 @@ public:
 		: Invoker(std::move(command))
 	{}
 
-	~Action() {}
+	virtual ~Action() {}
 
 	void attempt_execute()
 	{

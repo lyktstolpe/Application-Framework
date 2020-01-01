@@ -12,6 +12,8 @@ public:
 		, Action(std::move(command))
 	{}
 
+	~ScalarAction() {}
+
 	void attempt_execute()
 	{
 		Action::attempt_execute();
