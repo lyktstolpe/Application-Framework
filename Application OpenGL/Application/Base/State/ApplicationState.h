@@ -13,7 +13,7 @@
 
 class Application;
 
-class IApplicationState
+class IApplicationState // : public std::enable_shared_from_this<IApplicationState>
 {
 friend class Application;
 
@@ -39,14 +39,17 @@ public:
 	template<class contexttype, typename ...Args>
 	void create_context(Args... args)
 	{
-		_inputcontexts.push_back(std::move(std::make_unique<contexttype>(std::forward<Args>(args)...)));
+		_inputcontexts.push_back(std::make_unique<contexttype>(std::forward<Args>(args)...));
 		_inputcontexts.back()->_glfwwindow = _glfwwindow;
 		_inputcontexts.back()->_parentapplication = _parentapplication;
+		_inputcontexts.back()->_parentstate = this;
 	}
 	void change_context(int i);
 	void push_context(int i);
 	void pop_context();
 	void clear_context();
+
+	std::unique_ptr<Command::ChangeContext> get_command_change_to_context(int i);
 
 protected:
 	std::vector<std::unique_ptr<Context>> _inputcontexts;

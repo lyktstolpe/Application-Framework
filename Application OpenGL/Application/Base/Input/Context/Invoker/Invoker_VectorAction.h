@@ -6,7 +6,7 @@
 class VectorAction : public Vector, public Action
 {
 public:
-	VectorAction(std::unique_ptr<ICommand> command, Bounds2D bounds)
+	VectorAction(std::unique_ptr<Command::ICommand> command, Bounds2D bounds)
 		: Invoker(std::move(command))
 		, Vector(std::move(command), bounds)
 		, Action(std::move(command))

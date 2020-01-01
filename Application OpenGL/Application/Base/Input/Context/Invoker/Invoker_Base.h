@@ -25,7 +25,7 @@ public:
 		: _command(nullptr)
 		, _active(false)
 	{}
-	Invoker(std::unique_ptr<ICommand> command)
+	Invoker(std::unique_ptr<Command::ICommand> command)
 		: _command(std::move(command))
 		, _active(false)
 	{}
@@ -48,6 +48,6 @@ public:
 	}
 
 protected:
-	std::unique_ptr<ICommand> _command;
+	std::unique_ptr<Command::ICommand> _command;
 	bool _active;
 };

@@ -34,7 +34,7 @@ public:
 
 private:
 	std::array<std::unique_ptr<Invoker>, GLFW_MOUSE_BUTTON_LAST + 1> _buttonmap;
-	std::unique_ptr<WeightedCommand> _mousexmap;
-	std::unique_ptr<WeightedCommand> _mouseymap;
+	std::unique_ptr<Command::WeightedCommand> _mousexmap;
+	std::unique_ptr<Command::WeightedCommand> _mouseymap;
 };
 

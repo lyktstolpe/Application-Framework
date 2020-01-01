@@ -15,7 +15,6 @@ void Application::init()
 	init_window();
 	init_statemanager();
 	init_states();
-	LOG_F(INFO, "");
 }
 
 void Application::run()

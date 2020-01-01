@@ -5,7 +5,7 @@
 class State : public virtual Invoker
 {
 public:
-	State(std::unique_ptr<ICommand> command)
+	State(std::unique_ptr<Command::ICommand> command)
 		: Invoker(std::move(command))
 	{}
 

@@ -27,7 +27,7 @@ public:
 	template<class statetype, typename ...Args>
 	void create_state(Args ...args)
 	{
-		_states.push_back(std::make_unique<statetype>(std::forward<Args>(args)...));
+		_states.push_back(std::make_shared<statetype>(std::forward<Args>(args)...));
 		auto& s = _states.back();
 		s->_parentapplication = shared_from_this();
 		s->_glfwwindow = _window->glfwwindow();
@@ -39,9 +39,9 @@ public:
 			_statemanager->change_state(_states[i].get());
 	}
 
-	std::unique_ptr<ChangeState> get_command_change_to_state(int i)
+	std::unique_ptr<Command::ChangeState> get_command_change_to_state(int i)
 	{
-		std::unique_ptr<ChangeState> cmd = std::make_unique<ChangeState>(this, i);
+		std::unique_ptr<Command::ChangeState> cmd = std::make_unique<Command::ChangeState>(this, i);
 		return std::move(cmd);
 	}
 
@@ -63,7 +63,7 @@ private:
 	std::unique_ptr<Window> _window;
 	std::unique_ptr<InputHandler> _inputhandler;
 	std::unique_ptr<StateManager> _statemanager;
-	std::vector<std::unique_ptr<IApplicationState>> _states;
+	std::vector<std::shared_ptr<IApplicationState>> _states;
 
 	bool _printnextfps;
 	int _flag_change_state;

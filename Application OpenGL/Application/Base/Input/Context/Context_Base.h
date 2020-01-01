@@ -34,16 +34,20 @@ public:
 	}
 
 	template<class inputtype>
-	void map_key(int key, std::unique_ptr<ICommand> cmd)
+	void map_key(int key, std::unique_ptr<Command::ICommand> cmd)
 	{
 		_keymap[key] = std::make_unique<inputtype>(std::move(cmd));
 	}
 
-	std::unique_ptr<ChangeState> get_command_change_to_state(int i);
+	std::unique_ptr<Command::ChangeState> get_command_change_to_state(int i);
+	std::unique_ptr<Command::ChangeContext> get_command_change_to_context(int i);
+
 protected:
 	std::array<std::unique_ptr<Invoker>, GLFW_KEY_LAST + 1> _keymap;
 	std::weak_ptr<GLFWwindow> _glfwwindow;
 	std::weak_ptr<Application> _parentapplication;
+	IApplicationState* _parentstate;
+
 	virtual void init() = 0;
 	virtual void cleanup() = 0;
 };

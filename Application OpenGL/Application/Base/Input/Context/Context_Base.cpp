@@ -31,9 +31,15 @@ void Context::cleanup_core()
 	cleanup();
 }
 
-std::unique_ptr<ChangeState> Context::get_command_change_to_state(int i)
+std::unique_ptr<Command::ChangeState> Context::get_command_change_to_state(int i)
 {
 	auto parentapp_shared = _parentapplication.lock();
-	std::unique_ptr<ChangeState> cmd = parentapp_shared->get_command_change_to_state(i);
+	std::unique_ptr<Command::ChangeState> cmd = parentapp_shared->get_command_change_to_state(i);
+	return std::move(cmd);
+}
+
+std::unique_ptr<Command::ChangeContext> Context::get_command_change_to_context(int i)
+{
+	std::unique_ptr<Command::ChangeContext> cmd = _parentstate->get_command_change_to_context(i);
 	return std::move(cmd);
 }

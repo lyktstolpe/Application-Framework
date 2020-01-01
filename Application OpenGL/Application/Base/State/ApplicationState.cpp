@@ -55,12 +55,14 @@ void IApplicationState::display_core()
 
 void IApplicationState::change_context(int i)
 {
-	_contextmanager.change_context(_inputcontexts[i].get());
+	if (i < _inputcontexts.size())
+		_contextmanager.change_context(_inputcontexts[i].get());
 }
 
 void IApplicationState::push_context(int i)
 {
-	_contextmanager.push_context(_inputcontexts[i].get());
+	if (i < _inputcontexts.size())
+		_contextmanager.push_context(_inputcontexts[i].get());
 }
 
 void IApplicationState::pop_context()
@@ -71,4 +73,10 @@ void IApplicationState::pop_context()
 void IApplicationState::clear_context()
 {
 	_contextmanager.clear();
+}
+
+std::unique_ptr<Command::ChangeContext> IApplicationState::get_command_change_to_context(int i)
+{
+	std::unique_ptr<Command::ChangeContext> cmd = std::make_unique<Command::ChangeContext>(this, i);
+	return std::move(cmd);
 }

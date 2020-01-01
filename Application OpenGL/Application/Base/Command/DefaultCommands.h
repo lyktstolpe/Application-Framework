@@ -2,58 +2,73 @@
 
 #include "ICommand.h"
 
-class Print : public ICommand
+namespace Command
 {
-public:
-	Print(std::string string);
+	class Print : public ICommand
+	{
+	public:
+		Print(std::string string);
 
-	void execute();
+		void execute();
 
-private:
-	std::string _string;
-};
+	private:
+		std::string _string;
+	};
 
-class ChangeState : public ICommand
-{
-public:
-	ChangeState(Application* app, int index);
+	class ChangeState : public ICommand
+	{
+	public:
+		ChangeState(::Application* app, int index);
 
-	void execute();
+		void execute();
 
-private:
-	Application* _app;
-	int _index;
-};
+	private:
+		::Application* _app;
+		int _index;
+	};
 
-class DisableCursor : public ICommand
-{
-public:
-	DisableCursor(GLFWwindow* window);
+	class ChangeContext : public ICommand
+	{
+	public:
+		ChangeContext(::IApplicationState* state, int index);
 
-	void execute();
+		void execute();
 
-private:
-	GLFWwindow* _window;
-};
+	private:
+		::IApplicationState* _state;
+		int _index;
+	};
 
-class EnableCursor : public ICommand
-{
-public:
-	EnableCursor(GLFWwindow* window);
+	class DisableCursor : public ICommand
+	{
+	public:
+		DisableCursor(GLFWwindow* window);
 
-	void execute();
+		void execute();
 
-private:
-	GLFWwindow* _window;
-};
+	private:
+		GLFWwindow* _window;
+	};
 
-class ToggleCursor : public ICommand
-{
-public:
-	ToggleCursor(GLFWwindow* window);
+	class EnableCursor : public ICommand
+	{
+	public:
+		EnableCursor(GLFWwindow* window);
 
-	void execute();
+		void execute();
 
-private:
-	GLFWwindow* _window;
-};
+	private:
+		GLFWwindow* _window;
+	};
+
+	class ToggleCursor : public ICommand
+	{
+	public:
+		ToggleCursor(GLFWwindow* window);
+
+		void execute();
+
+	private:
+		GLFWwindow* _window;
+	};
+}

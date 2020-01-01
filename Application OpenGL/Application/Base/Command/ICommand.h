@@ -9,13 +9,16 @@
 #include <loguru.hpp>
 
 class Application;
+class IApplicationState;
 
-class ICommand
+namespace Command
 {
-public:
-	virtual ~ICommand() = default;
-	virtual void execute() = 0;
-};  
-
+	class ICommand
+	{
+	public:
+		virtual ~ICommand() = default;
+		virtual void execute() = 0;
+	};  
+}
 
 #endif

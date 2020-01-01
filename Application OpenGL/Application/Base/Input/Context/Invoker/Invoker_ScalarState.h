@@ -6,7 +6,7 @@
 class ScalarState : public Scalar, public State
 {
 public:
-	ScalarState(std::unique_ptr<ICommand> command, Bounds1D bounds)
+	ScalarState(std::unique_ptr<Command::ICommand> command, Bounds1D bounds)
 		: Invoker(std::move(command))
 		, Scalar(std::move(command), bounds)
 		, State(std::move(command))

@@ -5,7 +5,7 @@
 class Scalar : public virtual Invoker
 {
 public:
-	Scalar(std::unique_ptr<ICommand> command, Bounds1D bounds)
+	Scalar(std::unique_ptr<Command::ICommand> command, Bounds1D bounds)
 		: Invoker(std::move(command))
 		, _bounds(bounds)
 	{}
