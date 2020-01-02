@@ -1,6 +1,3 @@
-#ifndef SECONDSTATE_H
-#define SECONDSTATE_H
-
 #pragma once
 
 #include <loguru.hpp>
@@ -8,7 +5,7 @@
 #include "../Application/Application.h"
 #include "Contexts/SecondStateContexts.h"
 
-class SecondState : public IApplicationState
+class SecondState : public ApplicationState
 {
 public:
 	SecondState() {}
@@ -24,5 +21,3 @@ public:
 
 	const char* get_name() { return "second"; }
 };
-
-#endif

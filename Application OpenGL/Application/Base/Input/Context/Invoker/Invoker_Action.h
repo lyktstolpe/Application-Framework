@@ -5,7 +5,7 @@
 class Action : public virtual Invoker
 {
 public:
-	Action(std::unique_ptr<Command::ICommand> command)
+	Action(std::unique_ptr<Command::Command> command)
 		: Invoker(std::move(command))
 	{}
 

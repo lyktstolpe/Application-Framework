@@ -4,7 +4,7 @@ void MainState::init()
 {
 	create_context<Bound>();
 	create_context<Unbound>();
-	change_context(0);
+	change_to_context(0);
 }
 
 void MainState::cleanup()

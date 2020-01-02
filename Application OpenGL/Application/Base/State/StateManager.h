@@ -1,6 +1,3 @@
-#ifndef STATEMANAGER_H
-#define STATEMANAGER_H
-
 #pragma once
 
 #include <memory>
@@ -19,14 +16,13 @@ public:
 	void get_events();
 	void update();
 	void display();
-	void change_state(IApplicationState* state);
-	void push_state(IApplicationState* state);
+	void change_state(ApplicationState* state);
+	void push_state(ApplicationState* state);
 	void pop_state();
 	void clear();
-	IApplicationState* get_current() { return _stack.back(); }
+	ApplicationState* get_current() { return _stack.back(); }
 
 private:
-	std::vector<IApplicationState*> _stack;
+	std::vector<ApplicationState*> _stack;
 };
 
-#endif

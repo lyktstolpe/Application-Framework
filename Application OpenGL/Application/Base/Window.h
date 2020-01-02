@@ -1,6 +1,3 @@
-#ifndef WINDOW_H
-#define WINDOW_H
-
 #pragma once
 
 #include <GLFW/glfw3.h>
@@ -34,4 +31,3 @@ private:
 	InputHandler* _inputhandler;
 };
 
-#endif

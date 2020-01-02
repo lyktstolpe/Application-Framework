@@ -24,7 +24,7 @@ void SecondBound::init()
 	map_mouse<VectorState, Command::Print>(GLFW_MOUSE_BUTTON_LEFT, tlquad, "Top Left");
 	map_mouse<VectorState, Command::Print>(GLFW_MOUSE_BUTTON_RIGHT, trquad, "Top Right");
 
-	map_hover<Vector, Command::Print>(tlquad, "Hover: Top Left");
+	map_hover<Command::Print>(tlquad, "Hover: Top Left");
 }
 
 void SecondUnbound::init()

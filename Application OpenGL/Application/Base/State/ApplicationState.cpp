@@ -1,14 +1,14 @@
 #include "ApplicationState.h"
 #include "../Application_Base.h"
 
-void IApplicationState::cleanup_core()
+void ApplicationState::cleanup_core()
 {
 	clear_context();
 	_inputcontexts.clear();
 	cleanup();
 }
 
-void IApplicationState::get_events_core()
+void ApplicationState::get_events_core()
 {
 	auto parentapp_shared = _parentapplication.lock();
 	std::unique_ptr<std::vector<KeyEvent>> key_events = parentapp_shared->get_inputhandler()->get_key_events();
@@ -42,40 +42,40 @@ void IApplicationState::get_events_core()
 	get_events();
 }
 
-void IApplicationState::update_core()
+void ApplicationState::update_core()
 {
 	_contextmanager.attempt_execute_events();
 	update();
 }
 
-void IApplicationState::display_core()
+void ApplicationState::display_core()
 {
 	display();
 }
 
-void IApplicationState::change_context(int i)
+void ApplicationState::change_to_context(int i)
 {
 	if (i < _inputcontexts.size())
 		_contextmanager.change_context(_inputcontexts[i].get());
 }
 
-void IApplicationState::push_context(int i)
+void ApplicationState::push_context(int i)
 {
 	if (i < _inputcontexts.size())
 		_contextmanager.push_context(_inputcontexts[i].get());
 }
 
-void IApplicationState::pop_context()
+void ApplicationState::pop_context()
 {
 	_contextmanager.pop_context();
 }
 
-void IApplicationState::clear_context()
+void ApplicationState::clear_context()
 {
 	_contextmanager.clear();
 }
 
-std::unique_ptr<Command::ChangeContext> IApplicationState::get_command_change_to_context(int i)
+std::unique_ptr<Command::ChangeContext> ApplicationState::get_command_change_to_context(int i)
 {
 	std::unique_ptr<Command::ChangeContext> cmd = std::make_unique<Command::ChangeContext>(this, i);
 	return std::move(cmd);

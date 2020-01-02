@@ -5,7 +5,7 @@
 class Vector : public virtual Invoker
 {
 public:
-	Vector(std::unique_ptr<Command::ICommand> command, Bounds2D bounds)
+	Vector(std::unique_ptr<Command::Command> command, Bounds2D bounds)
 		: Invoker(std::move(command))
 		, _bounds(bounds)
 	{}

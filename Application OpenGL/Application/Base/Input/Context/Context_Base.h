@@ -9,12 +9,12 @@
 #include "../../Event/InputEvent.h"
 #include "Invoker/Invoker.h"
 
-class IApplicationState;
+class ApplicationState;
 class Application;
 
 class Context
 {
-friend class IApplicationState;
+friend class ApplicationState;
 
 public:
 	Context();
@@ -34,7 +34,7 @@ public:
 	}
 
 	template<class inputtype>
-	void map_key(int key, std::unique_ptr<Command::ICommand> cmd)
+	void map_key(int key, std::unique_ptr<Command::Command> cmd)
 	{
 		_keymap[key] = std::make_unique<inputtype>(std::move(cmd));
 	}
@@ -46,7 +46,7 @@ protected:
 	std::array<std::unique_ptr<Invoker>, GLFW_KEY_LAST + 1> _keymap;
 	std::weak_ptr<GLFWwindow> _glfwwindow;
 	std::weak_ptr<Application> _parentapplication;
-	IApplicationState* _parentstate;
+	ApplicationState* _parentstate;
 
 	virtual void init() = 0;
 	virtual void cleanup() = 0;

@@ -1,6 +1,3 @@
-#ifndef STATE_H
-#define STATE_H
-
 #pragma once
 
 #include <memory>
@@ -13,17 +10,17 @@
 
 class Application;
 
-class IApplicationState // : public std::enable_shared_from_this<IApplicationState>
+class ApplicationState // : public std::enable_shared_from_this<IApplicationState>
 {
 friend class Application;
 
 public:
-	IApplicationState() 
+	ApplicationState() 
 		: _glfwwindow()
 		, _parentapplication()
 	{}
 
-	virtual ~IApplicationState() {}
+	virtual ~ApplicationState() {}
 
 	virtual void init() = 0;
 	void cleanup_core();
@@ -44,7 +41,7 @@ public:
 		_inputcontexts.back()->_parentapplication = _parentapplication;
 		_inputcontexts.back()->_parentstate = this;
 	}
-	void change_context(int i);
+	void change_to_context(int i);
 	void push_context(int i);
 	void pop_context();
 	void clear_context();
@@ -63,4 +60,3 @@ protected:
 	virtual void display() = 0;
 };
 
-#endif

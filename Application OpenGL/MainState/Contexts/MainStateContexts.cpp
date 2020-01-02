@@ -26,7 +26,7 @@ void Bound::init()
 
 	map_key<Action>(GLFW_KEY_A, get_command_change_to_context(1));
 
-	map_hover<Vector, Command::Print>(tlquad, "Hover: Top Left");
+	map_hover<Command::Print>(tlquad, "Hover: Top Left");
 	map_key<State>(GLFW_KEY_TAB, get_command_change_to_state(1));
 }
 

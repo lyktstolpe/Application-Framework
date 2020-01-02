@@ -20,10 +20,10 @@ public:
 		_buttonmap[key].push_back(std::make_unique<inputtype>(std::move(std::make_unique<cmd>(std::forward<Args>(args)...)), bounds));
 	}
 
-	template<class inputtype, class cmd, typename ...Args>
+	template<class cmd, typename ...Args>
 	void map_hover(Bounds2D bounds, Args ...args)
 	{
-		_hovermap.push_back(std::make_unique<inputtype>(std::move(std::make_unique<cmd>(std::forward<Args>(args)...)), bounds));
+		_hovermap.push_back(std::make_unique<Vector>(std::move(std::make_unique<cmd>(std::forward<Args>(args)...)), bounds));
 	}
 
 private:

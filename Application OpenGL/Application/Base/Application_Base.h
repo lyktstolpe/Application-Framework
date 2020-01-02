@@ -1,6 +1,3 @@
-#ifndef APPLICATION_H
-#define APPLICATION_H
-
 #pragma once
 
 #include <memory>
@@ -63,10 +60,9 @@ private:
 	std::unique_ptr<Window> _window;
 	std::unique_ptr<InputHandler> _inputhandler;
 	std::unique_ptr<StateManager> _statemanager;
-	std::vector<std::shared_ptr<IApplicationState>> _states;
+	std::vector<std::shared_ptr<ApplicationState>> _states;
 
 	bool _printnextfps;
 	int _flag_change_state;
 };
 
-#endif

@@ -4,7 +4,7 @@ void SecondState::init()
 {
 	create_context<SecondBound>();
 	create_context<SecondUnbound>();
-	change_context(1);
+	change_to_context(1);
 }
 
 void SecondState::cleanup()

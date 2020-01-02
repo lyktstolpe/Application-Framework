@@ -6,7 +6,7 @@
 class ScalarAction : public Scalar, public Action
 {
 public:
-	ScalarAction(std::unique_ptr<Command::ICommand> command, Bounds1D bounds)
+	ScalarAction(std::unique_ptr<Command::Command> command, Bounds1D bounds)
 		: Invoker(std::move(command))
 		, Scalar(std::move(command), bounds)
 		, Action(std::move(command))

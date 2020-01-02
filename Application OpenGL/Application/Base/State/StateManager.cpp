@@ -22,7 +22,7 @@ void StateManager::display()
 		_stack.back()->display_core();
 }
 
-void StateManager::change_state(IApplicationState* state)
+void StateManager::change_state(ApplicationState* state)
 {
 	if (!state)
 	{
@@ -41,7 +41,7 @@ void StateManager::change_state(IApplicationState* state)
 	_stack.back()->init();
 }
 
-void StateManager::push_state(IApplicationState* state)
+void StateManager::push_state(ApplicationState* state)
 {
 	if (!state)
 	{

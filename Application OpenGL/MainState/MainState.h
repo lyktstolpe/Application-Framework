@@ -1,6 +1,3 @@
-#ifndef MAINSTATE_H
-#define MAINSTATE_H
-
 #pragma once
 
 #include <loguru.hpp>
@@ -8,7 +5,7 @@
 #include "../Application/Application.h"
 #include "Contexts/MainStateContexts.h"
 
-class MainState : public IApplicationState
+class MainState : public ApplicationState
 {
 public:
 	MainState() {}
@@ -25,4 +22,3 @@ public:
 	const char* get_name() { return "main"; }
 };
 
-#endif

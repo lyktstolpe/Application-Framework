@@ -6,7 +6,7 @@
 class VectorState : public Vector, public State
 {
 public:
-	VectorState(std::unique_ptr<Command::ICommand> command, Bounds2D bounds)
+	VectorState(std::unique_ptr<Command::Command> command, Bounds2D bounds)
 		: Invoker(std::move(command))
 		, Vector(std::move(command), bounds)
 		, State(std::move(command))

@@ -45,11 +45,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <ExecutablePath>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\loguru\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\stb_image\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLM\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\include;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)\Libraries\GLFW\include;$(SolutionDir)\Libraries\loguru\include;$(SolutionDir)\Libraries\GLM\include;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <ExecutablePath>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\loguru\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\stb_image\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLM\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\include;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>$(SolutionDir)\Libraries\GLFW\include;$(SolutionDir)\Libraries\loguru\include;$(SolutionDir)\Libraries\GLM\include;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -60,13 +60,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\loguru\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\stb_image\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLM\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Libraries\loguru\include;$(SolutionDir)\Libraries\GLM\include;$(SolutionDir)\Libraries\GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\lib\x64;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\lib;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Libraries\GLFW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -80,15 +80,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\loguru\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\stb_image\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLM\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\include;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Libraries\loguru\include;$(SolutionDir)\Libraries\GLM\include;$(SolutionDir)\Libraries\GLFW\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\Assimp\lib\x64;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLFW\lib;C:\Users\Viktor Axén\Documents\Visual Studio 2019\OpenGL Includes\GLEW\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Libraries\GLFW\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -105,7 +105,7 @@
     <ClCompile Include="Application\Base\Input\Context\ContextManager.cpp" />
     <ClCompile Include="Application\Base\Input\Context\Context_cursor_disabled.cpp" />
     <ClCompile Include="Application\Base\Input\Context\Context_cursor_enabled.cpp" />
-    <ClCompile Include="Application\Base\Command\DefaultCommands.cpp" />
+    <ClCompile Include="Application\Base\Command\Commands_default.cpp" />
     <ClCompile Include="SecondState\SecondState.cpp" />
     <ClCompile Include="SecondState\Contexts\SecondStateContexts.cpp" />
   </ItemGroup>
@@ -128,7 +128,7 @@
     <ClInclude Include="Application\Base\Application_Base.h" />
     <ClInclude Include="Application\Base\Utilities\Timer.h" />
     <ClInclude Include="Application\Base\Window.h" />
-    <ClInclude Include="Application\Base\Command\ICommand.h" />
+    <ClInclude Include="Application\Base\Command\Command_Base.h" />
     <ClInclude Include="Application\Base\Input\InputHandler.h" />
     <ClInclude Include="Application\Base\State\ApplicationState.h" />
     <ClInclude Include="MyApplication.h" />
@@ -138,7 +138,7 @@
     <ClInclude Include="Application\Base\Input\Context\ContextManager.h" />
     <ClInclude Include="Application\Base\Input\Context\Context_cursor_disabled.h" />
     <ClInclude Include="Application\Base\Input\Context\Context_cursor_enabled.h" />
-    <ClInclude Include="Application\Base\Command\DefaultCommands.h" />
+    <ClInclude Include="Application\Base\Command\Commands_default.h" />
     <ClInclude Include="SecondState\SecondState.h" />
     <ClInclude Include="SecondState\Contexts\SecondStateContexts.h" />
   </ItemGroup>

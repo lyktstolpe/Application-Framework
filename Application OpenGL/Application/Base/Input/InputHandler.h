@@ -1,6 +1,3 @@
-#ifndef INPUTHANDLER_H
-#define INPUTHANDLER_H
-
 #pragma once
 
 #include <array>
@@ -38,4 +35,3 @@ private:
 	double _cursorx, _cursory;
 };
 
-#endif
