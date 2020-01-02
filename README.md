@@ -40,6 +40,9 @@ For `Command` those are:
 For `WeightedCommand those are`
   - `void execute(double weight)` : Called during active states `get_events()` call
   
+
+### The main function
+  
 To actually create an `Application` object and get it running only these three lines are required in your main function:
 
 ```
@@ -51,14 +54,20 @@ a->run();
 
 Where `MyApplication` inherits from `Application`.
 
+### The Application object
+
 In the definition of the function `MyApplication::init_states()` you can create the states you want you application to have. 
 This is done with a call to `create_state<StateType>(Args... args)` where `StateType` is one of your custom created state classes that inherits from `ApplicationState`, and args are the constructor arguments you need you state to have.
 After you have created all the states you need to get your app running, you finish with a call to `change_to_state(int stateindex)` where stateindex is the index of your state. States are indexed in the order they are created, so the first call to `create_state` creates a state with index 0;
 For an example on how this can look see: [MyApplication.h](https://github.com/lyktstolpe/Application-Framework/blob/master/Application%20OpenGL/MyApplication.h)
 
+### Creation of contexts
+
 The procedure is similar inside `MyState::init()` for the creation of input contexts. You create a context with a call to `create_context<ContextType>(Args... args)`.
 Finish of by calling `change_to_context(int contextindex)`. The same rules as for state creation apply.
 For an example on how this can look see: [MainState.h](https://github.com/lyktstolpe/Application-Framework/blob/master/Application%20OpenGL/MainState/MainState.h)
+
+### Mapping of keys and mouse actions
 
 In the function `Context::init()` you can bind the keys relevant dor that context. 
 
