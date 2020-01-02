@@ -27,7 +27,7 @@ For `ApplicationState` those are:
   - `void resume()` : Called when the state above this becomes the top state in the stack after a pop
   - `void get_events()` : Called immediately after `glfwPollEvents`
   - `void update()` : Called after `get_events()`
-  - `void display()` : Called after `display()`
+  - `void display()` : Called after `update()`
   - `const char* get_name()` : Called by the logging library when this state is changed to
   
 For `Context` those are:
